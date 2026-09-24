@@ -8,6 +8,7 @@ const featured = [
     stack: "RAG · Vector Embeddings · LLM · Redis · RabbitMQ",
     description:
       "A real-time knowledge orchestration platform unifying document analysis across 10,000+ documents with vector embeddings, conversational memory and live web research. Sub-50ms memory retrieval via Redis, 5,000+ async tasks a day through RabbitMQ, and custom RFM-scored personalized retrieval, improving answer relevance by 30%.",
+    link: "https://github.com/NikithaKunapareddy/MultiMind-RAG-Agent",
   },
   {
     name: "DealPulse AI",
@@ -15,6 +16,7 @@ const featured = [
     stack: "Python · PyTorch · Transformers · FastAPI · MLflow · SHAP",
     description:
       "An AI-powered CRM opportunity intelligence system that predicts sales deal stages directly from unstructured CRM conversation notes, cutting manual pipeline updates. A fine-tuned DistilBERT model runs behind a FastAPI service with MLflow tracking and SHAP explainability, returning real-time predictions, confidence scores and key CRM insights.",
+    link: "https://github.com/NikithaKunapareddy/Deal-Pulse-AI",
   },
 ];
 
@@ -24,12 +26,14 @@ const more = [
     stack: "Python · OpenCV · NumPy · Scikit-Image · CNN",
     description:
       "Restores degraded historical images through denoising, inpainting and contrast enhancement, reaching 20.15 dB PSNR and 0.83 SSIM without GPU acceleration. A 2D-FFT noise analysis framework and a lightweight 3-layer CNN classify noise types, improving BRISQUE scores by 44–47%, alongside Hough Transform fold detection with Telea Fast Marching inpainting.",
+    link: "https://github.com/NikithaKunapareddy/Adaptive-Photo-Restoration-Pipeline",
   },
   {
     name: "Familia",
     stack: "Next.js · FastAPI · Supabase · PostgreSQL · WebSockets",
     description:
       "A cross-cultural social networking platform with AI-powered multilingual communication and voice/video verification. Full-stack architecture with JWT auth and Row-Level Security for low-latency messaging, plus relationship-progression levels, global family rooms and leaderboards.",
+    link: "https://github.com/NikithaKunapareddy/cfc_Familya",
   },
 ];
 
@@ -61,7 +65,12 @@ export default function Projects() {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <p className="text-sm font-semibold text-secondary">{p.tag}</p>
+                <div className="flex justify-between items-start">
+                  <p className="text-sm font-semibold text-secondary">{p.tag}</p>
+                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary transition-colors" aria-label="View Project">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                  </a>
+                </div>
                 <h3 className="mt-2 font-display text-2xl font-bold text-paper group-hover:text-primary transition-colors">
                   {p.name}
                 </h3>
@@ -83,7 +92,12 @@ export default function Projects() {
               className="group rounded-xl border border-wire/50 bg-panel/10 p-6 backdrop-blur-sm transition-all hover:border-secondary/40 hover:bg-panel/20 relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <h3 className="relative z-10 font-display text-xl font-bold text-paper group-hover:text-secondary transition-colors">{p.name}</h3>
+              <div className="flex justify-between items-start relative z-10">
+                <h3 className="font-display text-xl font-bold text-paper group-hover:text-secondary transition-colors">{p.name}</h3>
+                <a href={p.link} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-secondary transition-colors ml-4" aria-label="View Project">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </a>
+              </div>
               <p className="relative z-10 mt-3 text-muted leading-relaxed">{p.description}</p>
               <p className="relative z-10 mt-4 text-sm font-medium text-primary">{p.stack}</p>
             </motion.article>

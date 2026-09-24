@@ -7,8 +7,8 @@ const groups = [
     items: ["C", "C++", "Java", "Python", "JavaScript", "PHP", "SQL", "Data Structures & Algorithms"],
   },
   {
-    title: "Frontend & backend",
-    items: ["HTML5", "CSS", "FastAPI", "Flask", "Streamlit", "RESTful APIs"],
+    title: "Frontend, Backend & Automation",
+    items: ["HTML5", "CSS", "FastAPI", "Flask", "Streamlit", "RESTful APIs", "Playwright", "Selenium", "Web Automation", "Test Automation"],
   },
   {
     title: "Databases & cloud",

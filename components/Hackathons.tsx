@@ -4,13 +4,17 @@ import { motion } from "framer-motion";
 const placed = [
   {
     result: "Winner — 1st place",
+    emoji: "🏆",
     name: "HaXplore Hackathon",
     org: "IIT BHU (Varanasi) · CodeFest",
+    highlight: true,
   },
   {
     result: "Finalist — 7th place",
+    emoji: "🏅",
     name: "Vista Hackathon",
     org: "IIT BHU (Varanasi) · CodeFest",
+    highlight: false,
   },
 ];
 
@@ -57,11 +61,22 @@ export default function Hackathons() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: i * 0.15 }}
-            className="group rounded-2xl border border-secondary/30 bg-secondary/5 p-6 backdrop-blur-sm transition-all hover:border-secondary hover:shadow-[0_0_20px_rgba(236,72,153,0.2)] hover:-translate-y-1 relative overflow-hidden"
+            className={`group rounded-2xl border p-6 backdrop-blur-sm transition-all hover:-translate-y-1 relative overflow-hidden ${
+              p.highlight 
+                ? "border-yellow-500/40 bg-yellow-500/5 hover:border-yellow-500 hover:shadow-[0_0_20px_rgba(234,179,8,0.2)]" 
+                : "border-secondary/30 bg-secondary/5 hover:border-secondary hover:shadow-[0_0_20px_rgba(236,72,153,0.2)]"
+            }`}
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-secondary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className={`absolute inset-0 bg-gradient-to-tr opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+              p.highlight ? "from-yellow-500/10 to-transparent" : "from-secondary/10 to-transparent"
+            }`}></div>
             <div className="relative z-10">
-              <p className="text-sm font-bold text-secondary uppercase tracking-wider">{p.result}</p>
+              <p className={`text-sm font-bold uppercase tracking-wider flex items-center gap-2 ${
+                p.highlight ? "text-yellow-500" : "text-secondary"
+              }`}>
+                {p.result}
+                <span className="text-lg">{p.emoji}</span>
+              </p>
               <h3 className="mt-2 font-display text-2xl font-bold text-paper group-hover:text-white transition-colors">{p.name}</h3>
               <p className="mt-2 text-sm font-medium text-muted">{p.org}</p>
             </div>
